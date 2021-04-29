@@ -47,11 +47,14 @@ if(cliArguments[2] === '-r'){
   let checkArray: string [] = fileContent.split('\n')
 
   let index: number = parseInt(cliArguments[3])
-  
+  if(Number.isInteger(index)){
     if(index > checkArray.length){
       console.log('Unable to remove: index is out of bound')
     }else if(index <= 0){
       console.log('Unable to remove: no index provided')
     } else 
     remove(index)
-  } 
+    } else {
+    console.log('OFF');
+    }
+} 
