@@ -27,6 +27,7 @@ if (cliArguments[2] === undefined) {
   } else console.log(fs.readFileSync('list.txt', 'utf-8'));
   } 
   
+  //Add task
   else if (cliArguments[2] === '-a') {
       if(cliArguments[3] === undefined){
       console.log('Unable to add: No task provided');
@@ -47,7 +48,16 @@ if (cliArguments[2] === undefined) {
 
 //Remove
 if(cliArguments[2] === '-r'){
+  const fs = require('fs');
+  let fileContent: string = fs.readFileSync('list.txt', 'utf-8');
+  let checkArray: string [] = fileContent.split('\n')
 
   let index: number = parseInt(cliArguments[3])
-  remove(index)
-}
+  
+    if(index > checkArray.length){
+      console.log('Unable to remove: index is out of bound')
+    }else if(index <= 0){
+      console.log('Unable to remove: no index provided')
+    } else 
+    remove(index)
+  } 
