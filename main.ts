@@ -1,6 +1,7 @@
 'use strict';
 export{};
 import { remove } from './remove'
+import { info } from './info'
 
 const cliArguments: string []  = process.argv;
 
@@ -8,14 +9,7 @@ console.log(cliArguments);
 
 // Print usage
 if (cliArguments[2] === undefined) {
-  console.log('Command Line Todo application');
-  console.log('=============================');
-  console.log('');
-  console.log('Command line arguments:');
-  console.log('    -l   Lists all the tasks');
-  console.log('    -a   Adds a new task');
-  console.log('    -r   Removes an task');
-  console.log('    -c   Completes an task');
+  info();
 
 //Print list
 } else if (cliArguments[2] === '-l') {
