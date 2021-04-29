@@ -44,17 +44,15 @@ if (cliArguments[2] === undefined) {
   }
 }
 
+//Remove
 if(cliArguments[2] === '-r'){
+
+  let index: number = parseInt(cliArguments[3])
 
   const fs = require('fs');
     let fileContent = fs.readFileSync('list.txt', 'utf-8');
-    console.table(fileContent);
-
     let array: string [] = fileContent.split('\n')
-    console.table(array);
-
-    array.splice(2,1);
-    console.table(array);
+    array.splice(index-1,1);
     fs.writeFileSync('list.txt','\n');
    
     for(let i: number = 0; i < array.length; i++){
