@@ -17,9 +17,16 @@ if (cliArguments[2] === undefined) {
 
 } else if (cliArguments[2] === '-l') {
 
+  
 
-  console.log('Ide jonnek a fajbol a taskok!');
-
+  const fs = require('fs');
+  let fileContent = fs.readFileSync('list.txt', 'utf-8');
+  let array: string[] = fileContent.split('');
+  
+  
+  if(array.length === 0){
+    console.log('\n No todos for today! :)');
+  }console.log('\n'+ fileContent);
 
   
 } else if (cliArguments[2] === '-a') {
